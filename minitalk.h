@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davioliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 15:19:33 by davioliv          #+#    #+#             */
-/*   Updated: 2023/11/08 16:43:05 by davioliv         ###   ########.fr       */
+/*   Created: 2023/11/08 11:32:49 by davioliv          #+#    #+#             */
+/*   Updated: 2023/11/08 15:06:30 by davioliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
-int	main(int argc, char **argv)
-{
-	int	pid;
+# include "ft_printf/ft_printf.h"
+# include <signal.h>
 
-	if (argc != 1)
-		ft_printf("Try this: ./server");
-	pid = getpid();
-}	
+#endif
