@@ -6,7 +6,7 @@
 /*   By: davioliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:19:33 by davioliv          #+#    #+#             */
-/*   Updated: 2023/11/08 16:43:05 by davioliv         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:43:01 by davioliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,4 @@ int	main(int argc, char **argv)
 	if (argc != 1)
 		ft_printf("Try this: ./server");
 	pid = getpid();
-}	
+}
