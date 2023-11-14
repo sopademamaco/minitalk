@@ -6,13 +6,13 @@
 /*   By: davioliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:33:17 by davioliv          #+#    #+#             */
-/*   Updated: 2023/11/14 16:43:00 by davioliv         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:08:44 by davioliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	ft_convert_bits(pid, c)
+void	ft_send_sig(int pid, char c)
 {
 	int	bit_count;
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	pid = ft_atoi(argv[1]);
 	while (argv[2][i])
 	{
-		ft_convert_bits(pid, argv[2][i]);
+		ft_send_sig(pid, argv[2][i]);
 		i++;
 	}
 	return (0);
