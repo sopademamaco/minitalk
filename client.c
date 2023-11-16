@@ -6,7 +6,7 @@
 /*   By: davioliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:33:17 by davioliv          #+#    #+#             */
-/*   Updated: 2023/11/14 17:08:44 by davioliv         ###   ########.fr       */
+/*   Updated: 2023/11/16 11:34:56 by davioliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ int	main(int argc, char **argv)
 
 	i = 0;
 	if (argc != 3)
-		ft_printf("Try this: ./client.c <Server PID> <string_to_send>");
+	{
+		ft_printf("Try this: ./client <Server PID> <string_to_send>");
+		return (0);
+	}
 	pid = ft_atoi(argv[1]);
 	while (argv[2][i])
 	{

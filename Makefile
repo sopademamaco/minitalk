@@ -6,7 +6,7 @@
 #    By: davioliv <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 15:33:06 by davioliv          #+#    #+#              #
-#    Updated: 2023/11/08 16:43:16 by davioliv         ###   ########.fr        #
+#    Updated: 2023/11/16 11:35:25 by davioliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,6 @@ fclean:	clean
 	make -C ${LIBDIR} fclean
 	${RM} ${NAME}
 
-re:	all fclean
+re:	fclean all
 
 .PHONY: all clean fclean re
