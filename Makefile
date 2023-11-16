@@ -6,19 +6,17 @@
 #    By: davioliv <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 15:33:06 by davioliv          #+#    #+#              #
-#    Updated: 2023/11/16 11:35:25 by davioliv         ###   ########.fr        #
+#    Updated: 2023/11/16 11:56:44 by davioliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minitalk.a
 SERVER_SRC = server.c
 CLIENT_SRC = client.c
-
 SERVER_OBJ = ${SERVER_SRC:.c=.o}
 CLIENT_OBJ = ${CLIENT_SRC:.c=.o}
 
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CC = cc -Wall -Werror -Wextra
 RM = rm -f
 LIB = ft_printf/libftprintf.a
 LIBDIR = ft_printf
@@ -29,8 +27,8 @@ $(NAME):	${SERVER_OBJ} ${CLIENT_OBJ}
 	make -C ${LIBDIR} all
 	cp ${LIB} ${NAME}
 	ar rcs ${NAME} ${SERVER_OBJ} ${CLIENT_OBJ}
-	${CC} ${CFLAGS} ${SERVER_OBJ} ${NAME} -o server
-	${CC} ${CFLAGS} ${CLIENT_OBJ} ${NAME} -o client
+	${CC} ${SERVER_OBJ} ${NAME} -o server
+	${CC} ${CLIENT_OBJ} ${NAME} -o client
 
 clean:
 	make -C ${LIBDIR} clean

@@ -6,7 +6,7 @@
 /*   By: davioliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:33:17 by davioliv          #+#    #+#             */
-/*   Updated: 2023/11/16 11:34:56 by davioliv         ###   ########.fr       */
+/*   Updated: 2023/11/16 12:11:03 by davioliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,15 @@ void	ft_send_sig(int pid, char c)
 	int	bit_count;
 
 	bit_count = 0;
-	if ((c & (0x01 << bit_count)) != 0)
-		kill(pid, SIGUSR1);
-	else
-		kill(pid, SIGUSR2);
-	bit_count++;
+	while (bit_count < 8)
+	{
+		if ((c & (0x01 << bit_count)) != 0)
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		usleep(5000);
+		bit_count++;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -41,5 +45,6 @@ int	main(int argc, char **argv)
 		ft_send_sig(pid, argv[2][i]);
 		i++;
 	}
+	ft_send_sig(pid, '\n');
 	return (0);
 }
