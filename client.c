@@ -6,7 +6,7 @@
 /*   By: davioliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:33:17 by davioliv          #+#    #+#             */
-/*   Updated: 2023/11/16 12:11:03 by davioliv         ###   ########.fr       */
+/*   Updated: 2023/11/17 12:27:39 by davioliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,33 @@ void	ft_send_sig(int pid, char c)
 	}
 }
 
+void	sig_handler(int	signal)
+{
+	static int	bit_count;
+
+	if (signal == SIGUSR1)
+		ft_printf("1");
+	else if (signal == SIGUSR2)
+		ft_printf("0");
+	bit_count++;
+	if (bit_count == 8)
+	{
+		ft_printf(" ");
+		bit_count = 0;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	int	i;
 	int	pid;
 
 	i = 0;
+	signal(SIGUSR1, sig_handler);
+	signal(SIGUSR2, sig_handler);
 	if (argc != 3)
 	{
-		ft_printf("Try this: ./client <Server PID> <string_to_send>");
+		ft_printf("Try this: ./client <Server PID> <\"string_to_send\">");
 		return (0);
 	}
 	pid = ft_atoi(argv[1]);
