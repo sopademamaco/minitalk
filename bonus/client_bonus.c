@@ -6,7 +6,7 @@
 /*   By: davioliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:33:17 by davioliv          #+#    #+#             */
-/*   Updated: 2023/12/21 12:00:29 by davioliv         ###   ########.fr       */
+/*   Updated: 2024/04/10 16:48:17 by davioliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_send_sig(int pid, char c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(5000);
+		usleep(50);
 		bit_count++;
 	}
 }
@@ -31,22 +31,12 @@ void	ft_send_sig(int pid, char c)
 void	sig_handler(int signal)
 {
 	static int	bit_count;
-	static char	bits[8];
 
-	if (signal == SIGUSR1)
-	{
-		bits[bit_count] = '1';
+	if (signal)
 		bit_count++;
-	}
-	else if (signal == SIGUSR2)
-	{
-		bits[bit_count] = '0';
-		bit_count++;
-	}
 	if (bit_count == 8)
 	{
-		ft_printf("%s ", bits);
-		ft_bzero(bits, bit_count);
+		ft_printf("Set of %d bits received\n", bit_count);
 		bit_count = 0;
 	}
 }

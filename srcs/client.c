@@ -6,7 +6,7 @@
 /*   By: davioliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:33:17 by davioliv          #+#    #+#             */
-/*   Updated: 2023/12/05 03:47:33 by davioliv         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:37:02 by davioliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_send_sig(int pid, char c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(5000);
+		usleep(50);
 		bit_count++;
 	}
 }
