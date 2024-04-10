@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davioliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 11:32:49 by davioliv          #+#    #+#             */
-/*   Updated: 2024/04/05 14:28:27 by davioliv         ###   ########.fr       */
+/*   Created: 2023/05/03 11:27:08 by davioliv          #+#    #+#             */
+/*   Updated: 2023/05/04 11:28:47 by davioliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <signal.h>
+char	*ft_strnstr(const char *hs, const char *nd, size_t len)
+{
+	size_t	i;
+	size_t	j;
 
-#endif
+	i = 0;
+	j = 0;
+	if (nd[j] == '\0')
+		return ((char *)hs);
+	while (hs[i] != '\0')
+	{
+		while (hs[i + j] == nd[j] && hs[i + j] != '\0' && i + j < len)
+			j++;
+		if (nd[j] == '\0')
+			return ((char *)hs + i);
+		i++;
+		j = 0;
+	}
+	return (0);
+}

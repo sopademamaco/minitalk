@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davioliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 11:32:49 by davioliv          #+#    #+#             */
-/*   Updated: 2024/04/05 14:28:27 by davioliv         ###   ########.fr       */
+/*   Created: 2023/04/17 16:10:50 by davioliv          #+#    #+#             */
+/*   Updated: 2023/05/04 11:42:04 by davioliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef MINITALK_H
-# define MINITALK_H
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	a;
+	size_t	l;
 
-# include "libft/libft.h"
-# include <signal.h>
-
-#endif
+	l = ft_strlen(dest);
+	if (size > 0 && size > l)
+	{
+		i = l;
+		a = 0;
+		while (src[a] != '\0' && i + 1 < size)
+		{
+			dest[i] = src[a];
+			i++;
+			a++;
+		}
+		dest[i] = '\0';
+		return (l + ft_strlen(src));
+	}
+	return (size + ft_strlen(src));
+}

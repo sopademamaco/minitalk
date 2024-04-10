@@ -6,11 +6,11 @@
 #    By: davioliv <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 15:33:06 by davioliv          #+#    #+#              #
-#    Updated: 2023/12/21 10:15:57 by davioliv         ###   ########.fr        #
+#    Updated: 2024/04/05 15:19:09 by davioliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = minitalk.a
+NAME = srcs/minitalk.a
 SERVER_SRC = srcs/server.c
 CLIENT_SRC = srcs/client.c
 SERVER_BONUS_SRC = bonus/server_bonus.c
@@ -22,8 +22,8 @@ CLIENT_BONUS_OBJ = ${CLIENT_BONUS_SRC:.c=.o}
 
 CC = cc -Wall -Werror -Wextra
 RM = rm -f
-LIB = srcs/ft_printf/libftprintf.a
-LIBDIR = srcs/ft_printf
+LIB = srcs/libft/libft.a
+LIBDIR = srcs/libft
 
 all:	${NAME}
 

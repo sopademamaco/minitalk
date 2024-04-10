@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davioliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 11:32:49 by davioliv          #+#    #+#             */
-/*   Updated: 2024/04/05 14:28:27 by davioliv         ###   ########.fr       */
+/*   Created: 2023/05/03 11:26:06 by davioliv          #+#    #+#             */
+/*   Updated: 2023/06/06 16:06:34 by davioliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <signal.h>
+char	*ft_strdup(const char *s1)
+{
+	size_t	i;
+	char	*buf;
 
-#endif
+	buf = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
+	i = 0;
+	if (!buf)
+		return (NULL);
+	while (s1[i] != '\0')
+	{
+		buf[i] = s1[i];
+		i++;
+	}
+	buf[i] = '\0';
+	return (buf);
+}
